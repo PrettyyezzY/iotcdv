@@ -1,0 +1,16 @@
+using System;
+
+public static void Run(string myIoTHubMessage, out object outputDocument, ILogger log)
+{
+    string temperature, humidity;
+    log.LogInformation($"C# IoT Hub trigger function processed a message: {myIoTHubMessage}");
+    temperature =myIoTHubMessage.Substring(13,6);
+    humidity   =myIoTHubMessage.Substring(32);
+    log.LogInformation($"Temperature: {temperature}, ||| Humidity: {humidity}");
+    //
+    outputDocument = new {
+        Id  = Guid.NewGuid().ToString(),
+        Tem = temperature,
+        Hum = humidity
+    };
+}
