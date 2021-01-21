@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "outputDocument",
+      "direction": "in",
+      "type": "cosmosDB",
+      "databaseName": "outDatabase",
+      "collectionName": "MyCollection",
+      "connectionStringSetting": "cdv21_DOCUMENTDB"
+    }
+  ]
+}
